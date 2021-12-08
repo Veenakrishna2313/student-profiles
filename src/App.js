@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-
-import StudentProfileService from "./studentProfileService";
+import "./App.css";
+import StudentProfileService from "./Student Profiles/studentProfileService";
 
 function App() {
   return (
     <div>
       <StudentProfileService />
-    </div>
+
+      </div>
   );
 }
 

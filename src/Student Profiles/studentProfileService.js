@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import StudentList from "./studentList";
+import StudentList from "../Student Profiles/studentList";
 
 const StudentProfileService = () => {
   const [studentData, setStudentData] = useState("");
