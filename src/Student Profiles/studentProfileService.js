@@ -24,6 +24,7 @@ const StudentProfileService = () => {
   return (
     <div>
       <StudentList studentData={studentData} />
+     
     </div>
   );
 };
