@@ -1,7 +1,8 @@
-
 import React from "react";
 import "../Student Profiles/studentList.css";
-import TestPercentage from './testPercentages';
+import ImageContainer from "../imageContainer";
+import ContentContainer from "../contentContainer";
+import TestPercentage from "./testPercentages";
 
 const StudentList = (props) => {
   const { studentData } = props;
@@ -12,21 +13,10 @@ const StudentList = (props) => {
         return (
           <div key={student.id} className="Container">
             <div className="imageContainer">
-              <img className="images" src={student.pic} alt="Student profile" />
+              <ImageContainer studentData={student} />
             </div>
             <div className="contentContainer">
-              <h5>
-                {student.firstName} {student.lastName}
-              </h5>
-              <p>Email: {student.email}</p>
-              <p>Company: {student.company}</p>
-              <p>Skill: {student.skill}</p>
-              <p>
-                Average:
-                {student.grades.reduce((acc, val) => acc + parseInt(val), 0) /
-                  student.grades.length}
-                %
-              </p>
+              <ContentContainer studentData={student} />
               <div className="percentageContainer">
                 <TestPercentage studentData={student.grades} />
               </div>
