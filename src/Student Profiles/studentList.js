@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./studentList.css";
 import ImageContainer from "../imageContainer";
 import ContentContainer from "../contentContainer";
@@ -6,11 +6,20 @@ import TestPercentage from "./testPercentages";
 import IconContainer from "../iconContainer";
 
 const StudentList = (props) => {
-  const { studentData, handleSwitch } = props;
+  const { studentData, handleSwitch, search } = props;
 
   const displayList = () => {
     if (studentData.length > 0) {
-      return studentData.map((student, index) => {
+      const filteredStudents =
+        search.length === 0
+          ? studentData
+          : studentData.filter((student) =>
+              `${student.firstName}${student.lastName}`
+                .toLowerCase()
+                .includes(search.toLowerCase())
+            );
+
+      return filteredStudents.map((student, index) => {
         return (
           <div key={student.id} className="Container">
             <div className="imageContainer">

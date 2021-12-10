@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import StudentList from "./studentList";
+import SearchComponent from "../Search Component/searchBox";
 
 const StudentProfileService = () => {
   const [studentData, setStudentData] = useState("");
-   const handleSwitch = (student) => {
-     console.log("inside handleSwitch", student);
-     const students = [...studentData];
-     console.log("new Students array", students);
-     const index = students.indexOf(student);
-     console.log("index is", index);
-     console.log("index is", students[index]);
-     students[index] = { ...students[index] };
-     console.log("this", students[index]);
-     students[index].icon = !students[index].icon;
-     console.log("new Students array", students[index]);
-     console.log("new Students array", students);
+  const [search, setSearch] = useState("");
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const handleSwitch = (student) => {
+    const students = [...studentData];
+    const index = students.indexOf(student);
+    students[index] = { ...students[index] };
+    students[index].icon = !students[index].icon;
     setStudentData(students);
-   };
+  };
 
   const url = "https://api.hatchways.io/assessment/students";
 
@@ -37,7 +37,8 @@ const StudentProfileService = () => {
 
   return (
     <div>
-      <StudentList studentData={studentData} handleSwitch={handleSwitch} />
+      <SearchComponent onChange={handleSearch} />
+      <StudentList studentData={studentData} handleSwitch={handleSwitch} search={search} />
     </div>
   );
 };
