@@ -41,5 +41,7 @@ padding:1rem;
 }
 .plus{
   color:rgba(151, 150, 150, 0.767);
+  background: none;
+  border:none;
   
 }

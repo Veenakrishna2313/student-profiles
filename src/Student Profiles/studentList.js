@@ -1,11 +1,23 @@
-import React from "react";
-import "../Student Profiles/studentList.css";
+import React, { useState } from "react";
+import "./studentList.css";
 import ImageContainer from "../imageContainer";
 import ContentContainer from "../contentContainer";
 import TestPercentage from "./testPercentages";
+import IconContainer from "../iconContainer";
 
 const StudentList = (props) => {
   const { studentData } = props;
+  const [Visible, setVisible] = useState(false);
+
+  const handleIconChange = () => {
+    let iconClass = "fa fa-2x plus fa-";
+    iconClass += Visible ? "minus" : "plus";
+    return iconClass;
+  };
+
+  const handleSwitch = () => {
+    setVisible(!Visible);
+  };
 
   const displayList = () => {
     if (studentData.length > 0) {
@@ -18,11 +30,14 @@ const StudentList = (props) => {
             <div className="contentContainer">
               <ContentContainer studentData={student} />
               <div className="percentageContainer">
-                <TestPercentage studentData={student.grades} />
+                {Visible && <TestPercentage studentData={student.grades} />}
               </div>
             </div>
             <div className="iconContainer">
-              <i className="fa fa-plus fa-2x plus" aria-hidden="true"></i>
+              <IconContainer
+                onSwitch={handleSwitch}
+                onIconChange={handleIconChange()}
+              />
             </div>
           </div>
         );

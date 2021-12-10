@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import StudentList from "../Student Profiles/studentList";
+import StudentList from "./studentList";
 
 const StudentProfileService = () => {
   const [studentData, setStudentData] = useState("");
@@ -9,7 +9,7 @@ const StudentProfileService = () => {
 
   useEffect(() => {
     getAllStudents();
-  },[]);
+  }, []);
 
   const getAllStudents = () => {
     axios
@@ -24,7 +24,6 @@ const StudentProfileService = () => {
   return (
     <div>
       <StudentList studentData={studentData} />
-     
     </div>
   );
 };
