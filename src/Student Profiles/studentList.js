@@ -4,19 +4,28 @@ import ImageContainer from "../imageContainer";
 import ContentContainer from "../contentContainer";
 import TestPercentage from "./testPercentages";
 import IconContainer from "../iconContainer";
+import FormContainer from "../Form Component/formContainer";
+import ButtonBox from "../Button Component/ButtonBox";
 
 const StudentList = (props) => {
-  const { studentData, handleSwitch, search } = props;
+  const {
+    studentData,
+    handleSwitch,
+    searchByName,
+    searchByTag,
+    onSubmit,
+    onChanges,
+  } = props;
 
   const displayList = () => {
     if (studentData.length > 0) {
       const filteredStudents =
-        search.length === 0
+        searchByName.length === 0
           ? studentData
           : studentData.filter((student) =>
               `${student.firstName}${student.lastName}`
                 .toLowerCase()
-                .includes(search.toLowerCase())
+                .includes(searchByName.toLowerCase())
             );
 
       return filteredStudents.map((student, index) => {
@@ -28,7 +37,14 @@ const StudentList = (props) => {
             <div className="contentContainer">
               <ContentContainer studentData={student} />
               <div className="percentageContainer">
-                <TestPercentage studentData={student} Visible="false" />
+                <TestPercentage studentData={student} />
+
+                <ButtonBox tags={student.tags} />
+                <FormContainer
+                  tags={student.tags}
+                  onChanges={onChanges}
+                  onSubmit={onSubmit(student)}
+                />
               </div>
             </div>
             <div className="iconContainer">

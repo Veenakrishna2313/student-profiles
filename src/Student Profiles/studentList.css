@@ -1,52 +1,66 @@
-*{
+* {
   box-sizing: border-box;
 }
-
-.Container{
-font-family: 'Raleway', sans-serif;
-width:100%;
-border-bottom:1px solid rgba(194, 191, 191,.5);
-display: flex;
-flex-direction: row;
-padding:1rem;
+/********************************Student List Styling************************************************/
+.Container {
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+  border-bottom: 1px solid rgba(194, 191, 191, 0.5);
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
 }
 
-.imageContainer{
-  align-self: flex-start ;
-  margin-right:3rem;
-}
-
-.images{  
+.imageContainer {
   align-self: flex-start;
-  width:8rem;
-  height:8rem;
-  border:1px solid rgba(194, 191, 191,.5);
+  margin-right: 3rem;
+}
+
+.images {
+  align-self: flex-start;
+  width: 8rem;
+  height: 8rem;
+  border: 1px solid rgba(194, 191, 191, 0.5);
   border-radius: 50%;
   object-fit: contain;
-
 }
 
-.contentContainer{
- align-self: flex-start ;
- line-height: .4rem;
-
+.contentContainer {
+  align-self: flex-start;
+  line-height: 0.4rem;
 }
 
-.Container div:last-child{
+.Container div:last-child {
   margin-left: auto;
 }
 
-.iconContainer{
-  align-self: flex-start ;
+.iconContainer {
+  align-self: flex-start;
 }
-.plus{
-  color:rgba(151, 150, 150, 0.767);
+.plus {
+  color: rgba(151, 150, 150, 0.767);
   background: none;
-  border:none;
+  border: none;
   cursor: pointer;
 }
 
-.plus:hover{
-color:black;
+.plus:hover {
+  color: black;
 }
 
+/******************************Search Bar Styling************************************************/
+
+.inputStyle {
+  display:block;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  outline:none;
+}
+
+/*************************************Tag Button Styling******************************************/
+
+.btn-light{
+  background-color: rgb(214, 211, 211) !important;
+  margin:1px;
+}

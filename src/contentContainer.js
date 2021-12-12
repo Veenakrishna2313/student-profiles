@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const contentContainer = (props) => {
 
    const { studentData } = props;
@@ -17,6 +18,7 @@ const contentContainer = (props) => {
           studentData.grades.length}
         %
       </p>
+      
     </React.Fragment>
   );
 }

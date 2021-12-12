@@ -1,19 +1,18 @@
-import React, {useState} from "react";
+import React from "react";
 import "../Student Profiles/studentList.css";
 
 const SearchBox = (props) => {
-
-  const {search, onChange}=props;
+  const { search, onChanges, displayName } = props;
 
   return (
     <React.Fragment>
       <input
         type="text"
         name="query"
-        className="form-control my-3"
-        placeholder="Search by name"
+        className="inputStyle"
+        placeholder={displayName}
         value={search}
-       onChange= {onChange}
+        onChange={onChanges}
       />
     </React.Fragment>
   );
