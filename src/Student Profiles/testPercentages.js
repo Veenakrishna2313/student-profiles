@@ -7,7 +7,7 @@ const testPercentages = (props) => {
     if (studentData.icon === true) {
       return studentData.grades.map((grade, i) => {
         return (
-          <div key={i}>
+          <div className="testPercentages" key={i}>
             <p>
               Test {i + 1} : {studentData.grades[i]} %
             </p>
@@ -15,7 +15,7 @@ const testPercentages = (props) => {
         );
       });
     } else {
-      <h1>No datd</h1>;
+      <h1>No data</h1>;
     }
   };
 

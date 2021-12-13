@@ -19,35 +19,59 @@ const StudentList = (props) => {
 
   const displayList = () => {
     if (studentData.length > 0) {
-      const filteredStudents =
-        searchByName.length === 0
-          ? studentData
-          : studentData.filter((student) =>
-              `${student.firstName}${student.lastName}`
-                .toLowerCase()
-                .includes(searchByName.toLowerCase())
-            );
+      let filteredStudents = [];
+
+      if (searchByName.length === 0 && searchByTag.length === 0) {
+        //if both Name and Tag searchs are empty, then display the entire student list
+        filteredStudents = studentData;
+      } else if (searchByName.length > 0) {
+        // There is a Name to search
+        filteredStudents = studentData.filter((student) =>
+          `${student.firstName}${student.lastName}`
+            .toLowerCase()
+            .includes(searchByName.toLowerCase())
+        );
+      } else if (searchByTag.length > 0) {
+        // There is a tag to search
+        filteredStudents = studentData.filter((student) => {
+          let selectStudent = false;
+          if (student.hasOwnProperty("tags")) {
+            student.tags.forEach((tag) => {
+              if (tag.includes(searchByTag)) {
+                // Select this student.
+                selectStudent = true;
+              }
+            });
+          }
+          return selectStudent;
+        });
+      }
 
       return filteredStudents.map((student, index) => {
         return (
-          <div key={student.id} className="Container">
+          <div key={student.id} className=" Container p-2">
             <div className="imageContainer">
               <ImageContainer studentData={student} />
             </div>
-            <div className="contentContainer">
-              <ContentContainer studentData={student} />
-              <div className="percentageContainer">
-                <TestPercentage studentData={student} />
 
-                <ButtonBox tags={student.tags} />
-                <FormContainer
-                  tags={student.tags}
-                  onChanges={onChanges}
-                  onSubmit={onSubmit(student)}
-                />
+            <div className="m-3 contentContainer">
+              <ContentContainer studentData={student} />
+              <div className="percentageContainer m-3">
+                <TestPercentage studentData={student} />
+                <div className=" m-2">
+                  <ButtonBox tags={student.tags} />
+                </div>               
+                <div className="formContainer">
+                  <FormContainer
+                    tags={student.tags}
+                    onChanges={onChanges}
+                    onSubmit={onSubmit(student)}
+                  />
+                </div>
               </div>
             </div>
-            <div className="iconContainer">
+
+            <div className="iconContainer p-2">
               <IconContainer
                 icon={student.icon}
                 onSwitch={() => handleSwitch(student)}

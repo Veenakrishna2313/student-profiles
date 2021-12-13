@@ -4,7 +4,7 @@ import StudentProfileService from "./Student Profiles/studentProfileService";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <StudentProfileService />
     </div>
   );

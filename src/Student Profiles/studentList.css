@@ -1,7 +1,24 @@
 * {
   box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
 }
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
 /********************************Student List Styling************************************************/
+.contentLayoutStyle {
+  margin-top: 80px;
+  width: 100%;
+  background-color: white;
+  max-height: 100vh;
+  overflow: auto;
+}
+.contentLayoutStyle::-webkit-scrollbar {
+  background: transparent;
+}
+
 .Container {
   font-family: "Raleway", sans-serif;
   width: 100%;
@@ -13,13 +30,12 @@
 
 .imageContainer {
   align-self: flex-start;
-  margin-right: 3rem;
 }
 
 .images {
   align-self: flex-start;
-  width: 8rem;
-  height: 8rem;
+  width: 7rem;
+  height: 7rem;
   border: 1px solid rgba(194, 191, 191, 0.5);
   border-radius: 50%;
   object-fit: contain;
@@ -27,13 +43,25 @@
 
 .contentContainer {
   align-self: flex-start;
-  line-height: 0.4rem;
+  font-size: small;
+  font-weight: 500;
+}
+
+.contentContainer h4 {
+  font-weight: 900;
 }
 
 .Container div:last-child {
   margin-left: auto;
 }
 
+.textStyle p {
+  margin: 0px;
+}
+.testPercentages p {
+  margin: 0px;
+}
+/**************************************Plus/minus Icon Styling*************************************************************************************/
 .iconContainer {
   align-self: flex-start;
 }
@@ -48,19 +76,54 @@
   color: black;
 }
 
-/******************************Search Bar Styling************************************************/
-
-.inputStyle {
-  display:block;
-  border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden;
-  outline:none;
+.btn-light {
+  background-color: rgb(214, 211, 211) !important;
+  margin: 0.5rem;
 }
 
-/*************************************Tag Button Styling******************************************/
+.formContainer {
+  margin: 1rem;
+}
 
-.btn-light{
-  background-color: rgb(214, 211, 211) !important;
-  margin:1px;
+@media screen and (max-width: 540px) {
+  .contentContainer {
+    font-size: 0.7rem;
+    font-weight: 500;
+     word-break: break-all;
+  }
+
+  .contentContainer h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  .images {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .testPercentages {
+    margin: 0;
+  }
+  .plus {
+    font-size: medium;
+  }
+}
+/******************************Search Bar Styling************************************************/
+.searchLayoutStyle {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 999;
+  background-color: white;
+}
+
+.inputStyle {
+  display: block !important;
+  width: 100%;
+  border-color: rgb(155, 151, 151);
+  border-top-style: hidden !important;
+  border-right-style: hidden !important;
+  border-left-style: hidden !important;
+  outline: none !important;
 }

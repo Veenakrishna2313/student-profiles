@@ -9,7 +9,7 @@ const ButtonBox = (props) => {
     if (tags !== undefined) {
       return tags.map((tag, i) => {
         return (
-          <button className="btn btn-light" key={tag.id}>
+          <button className="btn btn-light" key={i}>
             {tag}
           </button>
         );

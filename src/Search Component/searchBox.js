@@ -9,10 +9,11 @@ const SearchBox = (props) => {
       <input
         type="text"
         name="query"
-        className="inputStyle"
+        className="inputStyle m-2 "
         placeholder={displayName}
         value={search}
         onChange={onChanges}
+        autoComplete="off"
       />
     </React.Fragment>
   );

@@ -8,11 +8,13 @@ const iconContainer = (props) => {
 
   return (
     <React.Fragment>
-      <button
-        className={iconClass}
-        aria-hidden="true"
-        onClick={onSwitch}
-      ></button>
+      <div className="iconSize">
+        <button
+          className={iconClass}
+          aria-hidden="true"
+          onClick={onSwitch}
+        ></button>
+      </div>
     </React.Fragment>
   );
 };
